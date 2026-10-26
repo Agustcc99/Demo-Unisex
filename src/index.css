@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+/* Único lugar para la identidad visual: cambiar estos valores por cliente. */
+@theme {
+  /* Tema claro: lavanda + violeta, con rosa y lima de acento (alegre, para todos) */
+  --color-fondo: #faf7ff;
+  --color-superficie: #f1ebfd;
+  --color-texto: #1d1530;
+  --color-suave: #5c5470;
+  --color-borde: #e4dcf3;
+  --color-brand: #6d28d9;
+  --color-brand-claro: #c4b5fd; /* brand sobre fondos negros (portada, cierre) */
+  --color-sobre-brand: #ffffff; /* texto sobre botones brand y acento: contraste ≥ 4.5:1 */
+  --color-acento: #db2777; /* segundo color de los degradés (brand → acento) */
+  --color-resalte: #b8f34a; /* chispa: puntos, franja de atrás, última palabra de la portada */
+  --color-sobre-resalte: #1d1530;
+
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif; /* títulos */
+
+  --animate-kenburns: kenburns 18s ease-out both;
+  --animate-cinta: cinta 40s linear infinite;
+
+  @keyframes kenburns {
+    from {
+      transform: scale(1.12);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+  @keyframes cinta {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Tema claro: el brand oscuro no se lee sobre la portada negra; ahí usa su versión clara. */
+.bg-black .text-brand {
+  color: var(--color-brand-claro);
+}
+
+/* Manchas de color suaves de fondo para que la página no se vea plana. */
+#servicios,
+#galeria {
+  background-image:
+    radial-gradient(40rem 28rem at 100% 0%, rgb(255 95 162 / 0.12), transparent 70%),
+    radial-gradient(36rem 26rem at 0% 100%, rgb(184 243 74 / 0.16), transparent 70%);
+}
